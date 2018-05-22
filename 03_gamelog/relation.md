@@ -1,6 +1,0 @@
-- games
-  - reviews
-- users
-  - games
-  - reviews
-- reviews

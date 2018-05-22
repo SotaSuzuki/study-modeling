@@ -132,8 +132,17 @@ REST /users/:id/games (POST)
 #### Front
 
 Write Review Button
-  action: '/games/:id'
-  method: 'POST'
+  action: '/games/:id/reviews/new'
+  method: 'GET'
+
+GET /games/:id/reviews/new
+  -> Review form
+     action: '/games/:id/reviews'
+     method: 'POST'
+
+POST /games/:id/reviews
+  -> Post new review
+  -> Redirect to complete page or show error
 
 Edit Button
   action: '/reviews/:id'
@@ -145,8 +154,7 @@ Delete Button
 
 #### API
 
-REST /games/:id (POST)
-REST /reviews/:id (PUT, DELETE)
+REST /reviews
 
 ### Manage Game List
 
@@ -162,7 +170,9 @@ GET /users/:id/gemes
 
 #### API
 
-REST /games/:id (PUT)
+GET /self/game_list or GET /self/games
+POST /games/:id/fav
+DELETE /games/:id/fav
 
 ### Manage Reviews
 
@@ -172,8 +182,9 @@ GET /users/:id/reviews
   -> Show own review list
 
 Edit Button
-  action: '/reviews/:id'
-  method: 'PUT'
+  action: '/reviews/:id/edit'
+  method: 'GET'
+    -> PUT '/reviews/:id'
 
 Delete Button
   action: '/reviews/:id'
